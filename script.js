@@ -86,13 +86,13 @@ const fruit = [
   "Yuzu",
 ];
 
-function search(str) {
+function search() {
   let results = [];
-
-  if (typeof str === "string") {
+  let keywordInput = input.value;
+  if (keywordInput.length) {
     //checking to ensure input is not a number or smth else
-    results = fruit.filter((word) => {
-      word.toLowerCase().includes(str.toLowerCase()); //normalize the word written to lowercase, then filter through fruit list to match word
+    results = fruit.filter((keyword) => {
+      return keyword.toLowerCase().includes(keywordInput.toLowerCase()); //normalize the word written to lowercase, then filter through fruit list to match word
     });
   } else {
     alert("You can only search using letters!"); //alert user that only letters can be used in search box
