@@ -1,6 +1,9 @@
 const input = document.querySelector("#fruit");
 const suggestions = document.querySelector(".suggestions ul");
 
+input.addEventListener("keyup", search);
+suggestions.addEventListener("click", useSuggestion);
+
 const fruit = [
   "Apple",
   "Apricot",
@@ -85,12 +88,11 @@ const fruit = [
 
 function search(str) {
   let results = [];
-  let input = input.value;
 
-  if (typeof input === "string") {
+  if (typeof str === "string") {
     //checking to ensure input is not a number or smth else
     results = fruit.filter((word) => {
-      word.toLowerCase().includes(input.toLowerCase()); //normalize the word written to lowercase, then filter through fruit list to match word
+      word.toLowerCase().includes(str.toLowerCase()); //normalize the word written to lowercase, then filter through fruit list to match word
     });
   } else {
     alert("You can only search using letters!"); //alert user that only letters can be used in search box
@@ -109,5 +111,4 @@ function useSuggestion(e) {
   // TODO
 }
 
-input.addEventListener("keyup", searchHandler);
-suggestions.addEventListener("click", useSuggestion);
+//input.addEventListener("keyup", searchHandler);
