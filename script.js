@@ -85,15 +85,21 @@ const fruit = [
 
 function search(str) {
   let results = [];
+  let input = input.value;
 
-  // TODO
+  if (typeof input === "string") {
+    //checking to ensure input is not a number or smth else
+    result = fruit.filter((word) => {
+      word.toLowerCase().includes(input); //normalize the word written to lowercase, then filter through fruit list to match word
+    });
+  } else {
+    alert("You can only search using letters!"); //alert user that only letters can be used
+  }
 
   return results;
 }
 
-function searchHandler(e) {
-  // TODO
-}
+function searchHandler(e) {}
 
 function showSuggestions(results, inputVal) {
   // TODO
