@@ -104,7 +104,10 @@ function search() {
 function searchHandler(e) {}
 
 function showSuggestions(results, inputVal) {
-  // TODO
+  const listOfSuggestions = results.map((list) => {
+    return `<li> ${list} </li>`;
+  });
+  suggestions.innerHTML = `<ul> ${listOfSuggestions} </ul>`;
 }
 
 function useSuggestion(e) {
