@@ -90,13 +90,16 @@ function search() {
   let results = [];
   let keywordInput = input.value;
   if (keywordInput.length) {
-    //checking to ensure input is not a number or smth else
     results = fruit.filter((keyword) => {
       return keyword.toLowerCase().includes(keywordInput.toLowerCase()); //normalize the word written to lowercase, then filter through fruit list to match word
     });
-  } else {
-    alert("You can only search using letters!"); //alert user that only letters can be used in search box
   }
+  // if (!/^[a-zA-Z]+$/.test(keywordInput)) {
+  //test with /^[a-zA-Z]+$/ allows me to check if input only uses letters
+
+  // alert("You can only search using letters!"); //alert user that only letters can be used in search box
+  // return;
+  // }
   console.log(results);
   return results;
 }
@@ -104,14 +107,18 @@ function search() {
 function searchHandler(e) {}
 
 function showSuggestions(results, inputVal) {
-  const listOfSuggestions = results.map((list) => {
-    return `<li> ${list} </li>`;
+  const listOfSuggestions = results.map((inputVal) => {
+    return `<li> ${inputVal} </li>`;
   });
   suggestions.innerHTML = `<ul> ${listOfSuggestions} </ul>`;
 }
 
 function useSuggestion(e) {
-  // TODO
+  if (e.target.tagName === "LI") {
+    //if LI
+    input.value = e.target.textContent;
+    suggestions.innerHTML = ""; // Clear the suggestions after using one
+  }
 }
 
 //input.addEventListener("keyup", searchHandler);
