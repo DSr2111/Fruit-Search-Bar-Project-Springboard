@@ -89,13 +89,13 @@ function search(str) {
 
   if (typeof input === "string") {
     //checking to ensure input is not a number or smth else
-    result = fruit.filter((word) => {
-      word.toLowerCase().includes(input); //normalize the word written to lowercase, then filter through fruit list to match word
+    results = fruit.filter((word) => {
+      word.toLowerCase().includes(input.toLowerCase()); //normalize the word written to lowercase, then filter through fruit list to match word
     });
   } else {
-    alert("You can only search using letters!"); //alert user that only letters can be used
+    alert("You can only search using letters!"); //alert user that only letters can be used in search box
   }
-
+  console.log(results);
   return results;
 }
 
