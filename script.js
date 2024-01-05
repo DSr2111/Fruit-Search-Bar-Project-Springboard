@@ -98,7 +98,7 @@ function search(keywordInput) {
 }
 
 function searchHandler(e) {
-  const keywordInput = input.value;
+  const keywordInput = e.target.value;
   if (!/^[a-zA-Z]+$/.test(keywordInput) && keywordInput.length !== 0) {
     alert("You can only search using letters!"); // Alert user that only letters can be used in the search box
     return;
