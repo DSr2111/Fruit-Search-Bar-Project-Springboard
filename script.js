@@ -1,8 +1,9 @@
-const input = document.querySelector("#fruit");
+const input = document.querySelector("input[name='fruit']"); // Update the selector to use attribute selector for the input's name
 const suggestions = document.querySelector(".suggestions ul");
 
-input.addEventListener("keyup", search);
 suggestions.addEventListener("click", useSuggestion);
+
+input.addEventListener("keyup", searchHandler);
 
 const fruit = [
   "Apple",
@@ -86,25 +87,25 @@ const fruit = [
   "Yuzu",
 ];
 
-function search() {
+function search(keywordInput) {
   let results = [];
-  let keywordInput = input.value;
   if (keywordInput.length) {
     results = fruit.filter((keyword) => {
-      return keyword.toLowerCase().includes(keywordInput.toLowerCase()); //normalize the word written to lowercase, then filter through fruit list to match word
+      return keyword.toLowerCase().includes(keywordInput.toLowerCase());
     });
   }
-  // if (!/^[a-zA-Z]+$/.test(keywordInput)) {
-  //test with /^[a-zA-Z]+$/ allows me to check if input only uses letters
-
-  // alert("You can only search using letters!"); //alert user that only letters can be used in search box
-  // return;
-  // }
-  console.log(results);
   return results;
 }
 
-function searchHandler(e) {}
+function searchHandler(e) {
+  const keywordInput = input.value;
+  if (!/^[a-zA-Z]+$/.test(keywordInput)) {
+    alert("You can only search using letters!"); // Alert user that only letters can be used in the search box
+    return;
+  }
+  const results = search(keywordInput); // Call the search function to get the results
+  showSuggestions(results); // Call showSuggestions with the results
+}
 
 function showSuggestions(results, inputVal) {
   const listOfSuggestions = results.map((inputVal) => {
@@ -120,5 +121,3 @@ function useSuggestion(e) {
     suggestions.innerHTML = ""; // Clear the suggestions after using one
   }
 }
-
-//input.addEventListener("keyup", searchHandler);
