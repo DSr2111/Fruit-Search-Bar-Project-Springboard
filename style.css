@@ -30,7 +30,6 @@ input {
 .search-container .suggestions {
 }
 .search-container input {
-  flex: 1;
   height: 30px;
   background: transparent;
   border: 0;
@@ -41,12 +40,15 @@ input {
 
 ul {
   /* gotta be careful */
+  display: block;
   align-items: left;
+  padding-left: 0;
 }
 ul.has-suggestions {
 }
 ul li {
   display: flex;
+  align-items: start;
 }
 ul li:hover {
   background: aquamarine;
