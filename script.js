@@ -117,7 +117,7 @@ function showSuggestions(results, inputVal) {
 function useSuggestion(e) {
   if (e.target.tagName === "LI") {
     //if LI
-    input.value = e.target.textContent;
+    input.value = e.target.textContent; //updates input vale to selected fruit
     suggestions.innerHTML = ""; // Clear the suggestions after using one
   }
 }
