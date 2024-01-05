@@ -3,7 +3,7 @@
 }
 
 :focus {
-  /* TODO */
+  outline: 0;
 }
 
 body {
@@ -23,7 +23,7 @@ input {
   background-color: aliceblue;
   margin: 300px auto 0;
   border-radius: 2px;
-  padding: 1px;
+  padding: 3px;
   padding-bottom: 0px;
 }
 .search-container input,
@@ -33,7 +33,6 @@ input {
   height: 30px;
   background: transparent;
   border: 0;
-  outline: 0;
 }
 .search-container .suggestions {
 }
@@ -42,15 +41,17 @@ ul {
   /* gotta be careful */
   display: block;
   align-items: left;
-  padding-left: 0;
+  padding-left: 1px;
 }
 ul.has-suggestions {
 }
 ul li {
   display: flex;
   align-items: start;
+  padding-top: 2px;
+  padding-bottom: 2px;
 }
 ul li:hover {
-  background: aquamarine;
+  background: rgba(104, 108, 229, 0.491);
   animation-delay: 2ms;
 }
