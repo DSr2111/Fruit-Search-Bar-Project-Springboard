@@ -88,10 +88,12 @@ const fruit = [
 ];
 
 function search(keywordInput) {
-  let results = [];
+  let results = []; // set new results array
   if (keywordInput.length) {
+    //as soon as you start typing, results are generated
     results = fruit.filter((keyword) => {
-      return keyword.toLowerCase().includes(keywordInput.toLowerCase());
+      //using filter method to filter through fruit array
+      return keyword.toLowerCase().includes(keywordInput.toLowerCase()); //normalizes input to lowercase
     });
   }
   return results;
@@ -100,6 +102,7 @@ function search(keywordInput) {
 function searchHandler(e) {
   const keywordInput = e.target.value;
   if (!/^[a-zA-Z]+$/.test(keywordInput) && keywordInput.length !== 0) {
+    //without .length, annoying alert whenever you backspace
     alert("You can only search using letters!"); // Alert user that only letters can be used in the search box
     return;
   }
@@ -109,15 +112,15 @@ function searchHandler(e) {
 
 function showSuggestions(results, inputVal) {
   const listOfSuggestions = results.map((inputVal) => {
-    return `<li> ${inputVal} </li>`;
+    return `<li>${inputVal}</li>`; // new LI created
   });
-  suggestions.innerHTML = `<ul> ${listOfSuggestions} </ul>`;
+  suggestions.innerHTML = listOfSuggestions.join(""); //joins the suggestions, was getting a random comma before
 }
 
 function useSuggestion(e) {
   if (e.target.tagName === "LI") {
-    //if LI
-    input.value = e.target.textContent; //updates input vale to selected fruit
+    //if selected element is an LI, basically if you choose a suggestion
+    input.value = e.target.textContent; //updates input val to selected fruit
     suggestions.innerHTML = ""; // Clear the suggestions after using one
   }
 }
