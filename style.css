@@ -26,25 +26,19 @@ input {
   padding: 3px;
   padding-bottom: 0px;
 }
-/* .search-container input,
-.search-container .suggestions {
-} */
+
 .search-container input {
   height: 30px;
   background: transparent;
   border: 0;
 }
-/* .search-container .suggestions {
-} */
 
 ul {
-  /* gotta be careful */
   display: block;
   align-items: left;
   padding-left: 1px;
 }
-/* ul.has-suggestions {
-} */
+
 ul li {
   display: flex;
   align-items: start;
