@@ -1,10 +1,6 @@
 const input = document.querySelector("input[name='fruit']"); // Update the selector to use attribute selector for the input's name
 const suggestions = document.querySelector(".suggestions ul");
 
-suggestions.addEventListener("click", useSuggestion);
-
-input.addEventListener("keyup", searchHandler);
-
 const fruit = [
   "Apple",
   "Apricot",
@@ -124,3 +120,7 @@ function useSuggestion(e) {
     suggestions.innerHTML = ""; // Clear the suggestions after using one
   }
 }
+
+suggestions.addEventListener("click", useSuggestion);
+
+input.addEventListener("keyup", searchHandler);
