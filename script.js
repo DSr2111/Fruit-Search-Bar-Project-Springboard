@@ -110,7 +110,7 @@ function searchHandler(e) {
   showSuggestions(results); // Call showSuggestions with the results
 }
 
-function showSuggestions(results, inputVal) {
+function showSuggestions(results) {
   const listOfSuggestions = results.map((inputVal) => {
     return `<li>${inputVal}</li>`; // new LI created
   });
