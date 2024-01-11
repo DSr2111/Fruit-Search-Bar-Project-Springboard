@@ -84,6 +84,7 @@ const fruit = [
 ];
 
 function search(keywordInput) {
+  let results = []; // set new results array - clears array when input is empty
   if (keywordInput.length) {
     //as soon as you start typing, results are generated
     results = fruit.filter((keyword) => {
